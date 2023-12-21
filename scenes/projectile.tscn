@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6tq34vemhh8"]
+
+[ext_resource type="Texture2D" uid="uid://ddwxq862bvf0s" path="res://assets/Projectile.png" id="1_v62vb"]
+[ext_resource type="Script" path="res://components/MoveComponent.cs" id="2_hvdf2"]
+
+[node name="Projectile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v62vb")
+
+[node name="MoveComponent" type="Node2D" parent="." node_paths=PackedStringArray("Actor")]
+script = ExtResource("2_hvdf2")
+Actor = NodePath("..")
