@@ -4,7 +4,6 @@ using System;
 
 namespace HD2D.Resources;
 
-[Tool]
 [GlobalClass]
 public partial class MoveStatsResource : Resource
 {

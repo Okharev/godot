@@ -5,12 +5,10 @@ using System;
 
 namespace HD2D.Components;
 
-[Tool]
 [GlobalClass]
 public partial class InputComponent : Node2D
 {
     [Export] public MoveComponent MoveComponent { get; set; }
-
     [Export] public MoveStatsResource StatsResource { get; set; }
 
     public override void _Process(double delta)

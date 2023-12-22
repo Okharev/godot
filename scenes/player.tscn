@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://components/MoveComponent.cs" id="2_0pcck"]
 [ext_resource type="Script" path="res://components/InputComponent.cs" id="3_5g22b"]
 [ext_resource type="Resource" uid="uid://bf0u1nhaw4u0c" path="res://scenes/Resource/MoveStats.tres" id="4_muoq6"]
-[ext_resource type="Script" path="res://components/SpawnerComponent.cs" id="5_j2oop"]
-[ext_resource type="PackedScene" uid="uid://bq6tq34vemhh8" path="res://scenes/projectile.tscn" id="7_ximo8"]
+[ext_resource type="Script" path="res://components/FlashComponent.cs" id="8_giuha"]
+[ext_resource type="Script" path="res://scenes/PlayerCamera.cs" id="9_rjmyq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qog04"]
 atlas = ExtResource("1_kp52j")
@@ -129,15 +129,12 @@ animations = [{
 size = Vector2(14, 16)
 
 [node name="Player" type="Node2D"]
-position = Vector2(0, 1)
-scale = Vector2(0.987793, 1.09631)
 script = ExtResource("1_ifj6u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0o7xi")
-animation = &"walk_left"
+animation = &"idle_front"
 autoplay = "idle_front"
-frame_progress = 0.629763
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 motion_mode = 1
@@ -155,16 +152,15 @@ script = ExtResource("3_5g22b")
 MoveComponent = NodePath("../MoveComponent")
 StatsResource = ExtResource("4_muoq6")
 
-[node name="MuzzleRight" type="Node2D" parent="."]
-position = Vector2(-5, -10)
-script = ExtResource("5_j2oop")
-Scene = ExtResource("7_ximo8")
+[node name="FlashComponent" type="Node2D" parent="." node_paths=PackedStringArray("Sprite")]
+script = ExtResource("8_giuha")
+Sprite = NodePath("../AnimatedSprite2D")
 
-[node name="MuzzleLeft" type="Node2D" parent="."]
-position = Vector2(5, -10)
-script = ExtResource("5_j2oop")
-Scene = ExtResource("7_ximo8")
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.5
+script = ExtResource("9_rjmyq")
 
-[node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-5, 4)

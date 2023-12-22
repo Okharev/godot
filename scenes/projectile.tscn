@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq6tq34vemhh8"]
+[gd_scene load_steps=4 format=3 uid="uid://bq6tq34vemhh8"]
 
+[ext_resource type="Script" path="res://scenes/Projectile.cs" id="1_44thk"]
 [ext_resource type="Texture2D" uid="uid://ddwxq862bvf0s" path="res://assets/Projectile.png" id="1_v62vb"]
 [ext_resource type="Script" path="res://components/MoveComponent.cs" id="2_hvdf2"]
 
 [node name="Projectile" type="Node2D"]
+script = ExtResource("1_44thk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_v62vb")
@@ -11,3 +13,8 @@ texture = ExtResource("1_v62vb")
 [node name="MoveComponent" type="Node2D" parent="." node_paths=PackedStringArray("Actor")]
 script = ExtResource("2_hvdf2")
 Actor = NodePath("..")
+Velocity = Vector2(0, -5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.2625, 0.2625)
