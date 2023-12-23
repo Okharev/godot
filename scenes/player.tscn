@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bei7rh78otert"]
+[gd_scene load_steps=26 format=3 uid="uid://bei7rh78otert"]
 
 [ext_resource type="Script" path="res://scenes/Player.cs" id="1_ifj6u"]
 [ext_resource type="Texture2D" uid="uid://j7n7pbaqr6j3" path="res://assets/Basic Charakter Spritesheet.png" id="1_kp52j"]
@@ -23,6 +23,22 @@ region = Rect2(0, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4enq"]
 atlas = ExtResource("1_kp52j")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilkk1"]
+atlas = ExtResource("1_kp52j")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3axuv"]
+atlas = ExtResource("1_kp52j")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3walh"]
+atlas = ExtResource("1_kp52j")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juh3t"]
+atlas = ExtResource("1_kp52j")
+region = Rect2(48, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb2xy"]
 atlas = ExtResource("1_kp52j")
@@ -82,6 +98,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ilkk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3axuv")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3walh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juh3t")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sb2xy")
 }, {
 "duration": 1.0,
@@ -133,8 +171,9 @@ script = ExtResource("1_ifj6u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0o7xi")
-animation = &"idle_front"
+animation = &"walk_back"
 autoplay = "idle_front"
+frame_progress = 0.119834
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 motion_mode = 1
@@ -163,4 +202,4 @@ position_smoothing_speed = 1.5
 script = ExtResource("9_rjmyq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-5, 4)
+position = Vector2(0, 4)

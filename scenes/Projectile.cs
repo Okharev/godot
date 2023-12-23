@@ -1,4 +1,5 @@
 using Godot;
+using GodotUtilities;
 using System;
 
 namespace HD2D;
@@ -6,6 +7,7 @@ namespace HD2D;
 public partial class Projectile : Node2D
 {
 	private VisibleOnScreenNotifier2D OffScreenNotifier;
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
